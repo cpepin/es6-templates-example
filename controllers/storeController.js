@@ -7,5 +7,19 @@ exports.addStore = (req, res) => {
 }
 
 exports.createStore = (req, res) => {
-  res.redirect('/');
+  const {
+    name,
+    slug
+  } = req.store;
+
+  req.flash('success', `Successfully Created ${name}. Care to leave a review?`);
+  res.redirect(`/stores/${slug}`);
 };
+
+exports.getStores = (req, res) => {
+  const {
+    stores
+  } = req;
+
+  res.render('stores', { title: 'Stores', stores });
+}

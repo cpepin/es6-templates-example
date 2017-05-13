@@ -8,3 +8,10 @@ exports.createStore = async (req, res, next) => {
   console.log(`Successfully saved store ${store.name}`);
   next();
 }
+
+exports.getStores = async (req, res, next) => {
+  console.log(`Getting all stores`);
+  req.stores = await Store.find();
+  console.log(`Successfully retrieved all stores`);
+  next();
+}
