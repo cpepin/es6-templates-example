@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const storeController = require('../controllers/storeController');
+const storeService = require('../services/storeService');
 
 // Do work here
 router.get('/', storeController.homePage);
